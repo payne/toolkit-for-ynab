@@ -1,0 +1,35 @@
+.accounts-header .accounts-cell-balance {
+  padding-right: 1em;
+  font-size: .75em;
+  font-weight: 700;
+}
+.accounts-cell-balance {
+  width: 10%;
+}
+.is-master-category .accounts-cell-balance {
+  display: none;
+}
+
+.accounts-uncategorized-transactions .accounts-cell-balance {
+  display: none;
+}
+.accounts-cell-balance-display {
+  background-color: black;
+  border-radius: 1em;
+  padding: .125em .5em .175em .5em;
+  color: white;
+}
+
+.accounts-cell-balance-display.hot {
+/*  background-color: #d33c2d; */
+}
+.accounts-cell-balance-display.warm {
+/*  background-color: orange; */
+}
+.accounts-cell-balance-display.cool {
+/*  background-color: #16a336; */
+}
+.accounts-cell-balance-display.neutral {
+  color: #cfd5d7;
+  background-color: transparent;
+}

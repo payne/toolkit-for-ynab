@@ -76,7 +76,7 @@ if (kango.storage.getItem('checkCreditBalances')) {
 
 if (kango.storage.getItem('checkCreditBalances') || kango.storage.getItem('highlightNegativesNegative')) {
   // features that update presentation classes should have this enabled by default for consistency
-  injectScript('res/features/inspector-colours/main.js'); 
+  injectScript('res/features/inspector-colours/main.js');
 }
 
 if (kango.storage.getItem('enableRetroCalculator')) {
@@ -112,6 +112,10 @@ if (kango.storage.getItem('moveMoneyAutocomplete')) {
 
 if (kango.storage.getItem('toggleSplits')) {
   injectScript('res/features/toggle-splits/main.js');
+}
+
+if (kango.storage.getItem('toggleBalance')) {
+  injectScript('res/features/balance/main.js');
 }
 
 if (kango.storage.getItem('accountsSelectedTotal')) {
