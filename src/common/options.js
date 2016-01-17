@@ -71,6 +71,7 @@ function saveOptions() {
   saveCheckboxOption('moveMoneyAutocomplete');
   saveCheckboxOption('daysOfBuffering');
   saveCheckboxOption('toggleSplits');
+  saveCheckboxOption('toggleBalance');
   saveCheckboxOption('accountsSelectedTotal');
   saveCheckboxOption('changeEnterBehavior');
   saveCheckboxOption('transferJump');
@@ -106,6 +107,7 @@ function restoreOptions() {
   restoreCheckboxOption('moveMoneyAutocomplete');
   restoreCheckboxOption('daysOfBuffering');
   restoreCheckboxOption('toggleSplits');
+  restoreCheckboxOption('toggleBalance');
   restoreCheckboxOption('accountsSelectedTotal');
   restoreCheckboxOption('changeEnterBehavior');
   restoreCheckboxOption('transferJump');

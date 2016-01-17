@@ -8,9 +8,9 @@ function ynabEnhancedDoB() {
     var result = ynabEnhancedDoBCalculate();
     elementForDoB.children[0].textContent = result["DoB"] + " day" + (result["DoB"] == 1 ? "" : "s");
     elementForDoB.children[0].className = elementForDoB.children[0].className + " days-of-budgeting";
-    elementForDoB.children[0].title = "Total outflow: " + ynab.YNABSharedLib.currencyFormatter.format(result["totalOutflow"]) + 
-        "\nTotal days of budgeting: " + result["totalDays"] + 
-        "\nAverage daily outflow: ~" + ynab.YNABSharedLib.currencyFormatter.format(result["averageDailyOutflow"]) + 
+    elementForDoB.children[0].title = "Total outflow: " + ynab.YNABSharedLib.currencyFormatter.format(result["totalOutflow"]) +
+        "\nTotal days of budgeting: " + result["totalDays"] +
+        "\nAverage daily outflow: ~" + ynab.YNABSharedLib.currencyFormatter.format(result["averageDailyOutflow"]) +
         "\nAverage daily transactions: " + result["averageDailyTransactions"].toFixed(1);
     elementForDoB.children[1].textContent = "Days of Buffering";
     elementForDoB.children[1].className = elementForDoB.children[1].className + " days-of-budgeting"
@@ -20,7 +20,7 @@ function ynabEnhancedDoB() {
     YNABheader.appendChild(elementForDoB);
 }
 
-function onlyUnique(value, index, self) { 
+function onlyUnique(value, index, self) {
     return self.indexOf(value) === index;
 }
 
@@ -28,10 +28,10 @@ function ynabEnhancedCheckTransactionTypes(transactions) {
     // Describe all handled transaction types and check that no other got.
     var handeledTransactionTypes = ["subTransaction", "transaction", "scheduledTransaction", "scheduledSubTransaction"];
     var uniqueTransactionTypes = Array.from(transactions, (el) => el.displayItemType).filter(onlyUnique);
-    var allTypesHandeled = uniqueTransactionTypes.every(el => uniqueTransactionTypes.includes(el)); 
+    var allTypesHandeled = uniqueTransactionTypes.every(el => uniqueTransactionTypes.includes(el));
     if (!allTypesHandeled) {
         throw "Found unhandeled transaction type. " + uniqueTransactionTypes;
-    }  
+    }
 }
 
 function ynabEnhancedDoBCalculate() {
@@ -45,8 +45,8 @@ function ynabEnhancedDoBCalculate() {
     ynabEnhancedCheckTransactionTypes(transactions);
     // All subTransaction (comes from split) have their parent transaction so they shouldn't count.
     // scheduledTransaction shouldn't count too because they are not paid.
-    var outflow_transactions = transactions.filter((el) => el.displayItemType == "transaction" 
-                                                    && el.transferAccountId == null 
+    var outflow_transactions = transactions.filter((el) => el.displayItemType == "transaction"
+                                                    && el.transferAccountId == null
                                                     && el.outflow > 0
                                                     && el.getAccount().onBudget);
     var totalOutflow = Array.from(outflow_transactions, (i) => i.outflow).reduce((a, b) => a + b, 0);
@@ -67,7 +67,7 @@ function ynabEnhancedDoBInit() {
     if (elementForAoM.length == 1 && elementForDoB.length == 0) {
         ynabEnhancedDoB();
     }
-    
+
     setTimeout(ynabEnhancedDoBInit, 250);
 }
 

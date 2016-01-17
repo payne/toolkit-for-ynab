@@ -114,7 +114,10 @@ if (kango.storage.getItem('toggleSplits')) {
   injectScript('res/features/toggle-splits/main.js');
 }
 
-if (kango.storage.getItem('toggleBalance')) {
+console.log('About to look at storage item:'+ kango.storage.getItem('toggleBalance'));
+if (true || kango.storage.getItem('toggleBalance')) {
+  console.log('Injecting toggleBalance code');
+  injectCSS('res/features/balance/balance.css');
   injectScript('res/features/balance/main.js');
 }
 
